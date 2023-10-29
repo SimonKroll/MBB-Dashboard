@@ -15,15 +15,15 @@ body, html {
 body {overflow: hidden; margin: 0px;}
 
 .Speed {
-  font-size: 175px;
+  font-size: 200px;
   font-weight: normal;
   margin: auto;
-  margin-right: 150px;
+  margin-right: 270px;
 }
 
 .pct {
 
-  font-size: 28px;
+  font-size: 45px;
   font-weight: lighter;
   margin: 0px;
   margin-top: 2px;
@@ -45,9 +45,9 @@ html{
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 100vh;
-  background-color: black;
+  width: 800px;
+  height: 480px;
+  background-color: white;
   overflow: hidden;
 }
 
@@ -73,6 +73,7 @@ html{
   display: flex;
   justify-content: space-around;
   width: 100%;
+  margin: 10px;
 
 }
 
@@ -110,8 +111,8 @@ html{
 }
 
 .batteryOuter{
-  height: 33px;
-  width: 100px;
+  height: 50px;
+  width: 175px;
   background-color: rgb(150, 150, 150);
   border: solid 2px black;
   border-radius: 5px;
@@ -132,25 +133,4 @@ html{
   left: 0;
 }
 
-.notchLeft, .notchRight{
-  width: 15px;
-  height: 25px;
-  background: aqua;
 
-  display: block;
-  position: absolute;
-  top: 0;
-  z-index: 1;
-}
-
-.notchLeft{
-  left: -2px;
-  border-bottom: solid 1px black;
-  border-right: solid 1px black;
-}
-
-.notchRight{
-  right: -2px;
-  border-bottom: solid 1px black;
-  border-left: solid 1px black;
-}
