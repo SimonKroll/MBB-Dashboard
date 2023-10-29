@@ -10,7 +10,7 @@ var batteryPercentage = 5;
 setInterval(function(){
   if(batteryPercentage <= 100){
     batteryInner.style.width = batteryPercentage + '%';
-    batteryPercentage = (batteryPercentage + 5) % 100 ;
+    batteryPercentage = (batteryPercentage + 1) % 100 ;
     document.getElementsByClassName("pct")[0].innerHTML = batteryPercentage;
 
   }
@@ -20,7 +20,7 @@ setInterval(function(){
 var intervalId = window.setInterval(function(){
   console.log("async called");
  update_speed();
-}, 50);
+}, 100);
 
 
 eel.expose(prompt_alerts);
