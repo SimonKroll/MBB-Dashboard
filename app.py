@@ -36,21 +36,15 @@ def start_app():
     eel_thread.start() # Run eel in a seperate thread.
     serial_start()
 
-    #webview_start() # Start pywebview web browser.
 
 def eel_start():
     # EEL app start.
     print("Starting EEL")
     eel.start('index.html', mode='chrome', cmdline_args=['--kiosk'])
 
-def webview_start():
-    # pywebview start.
-    webview.create_window("App Name", "http://localhost:8000/index.html", fullscreen=True,frameless=True)
-    webview.start()
 
 def serial_start():
-
-    ser = serial.Serial("/dev/ttyACM0", 9600)
+    ser = serial.Serial("/dev/serial0", 9600)
 
     while True:
         line = ser.readline().decode("utf-8").rstrip()
