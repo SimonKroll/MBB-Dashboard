@@ -2,6 +2,8 @@ import eel
 import threading
 import random
 from datetime import datetime
+from time import sleep
+import serial
 
 eel.init('web')
 
@@ -28,27 +30,36 @@ def get_ip():
     eel.prompt_alerts('127.0.0.1')
 
 
-
-eel.start('index.html', mode='chrome', cmdline_args=['--kiosk'])
-
-
-"""
 def start_app():
     eel_thread = threading.Thread(target=eel_start) # Eel app start.
     eel_thread.setDaemon(True)
     eel_thread.start() # Run eel in a seperate thread.
+    serial_start()
 
-    webview_start() # Start pywebview web browser.
+    #webview_start() # Start pywebview web browser.
 
 def eel_start():
     # EEL app start.
-    eel.start("index.html", port=8000, mode=None,  shutdown_delay=0.0)
+    print("Starting EEL")
+    eel.start('index.html', mode='chrome', cmdline_args=['--kiosk'])
 
 def webview_start():
     # pywebview start.
     webview.create_window("App Name", "http://localhost:8000/index.html", fullscreen=True,frameless=True)
     webview.start()
+
+def serial_start():
+
+    ser = serial.Serial("/dev/ttyACM0", 9600)
+
+    while True:
+        line = ser.readline().decode("utf-8").rstrip()
+        if line[0] == "S":
+            eel.set_speed(line[6:10])
+            print(line[6:10])
+
+    ser.close()
   
 
 start_app() # Run app.
-"""
+

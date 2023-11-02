@@ -34,6 +34,18 @@ function prompt_alerts(description) {
   alert(description);
 }
 
+eel.expose(set_speed);
+function set_speed(mph) {
+  value = (Math.round(mph * 10) / 10).toFixed(1);
+  if (value < 10.0) {
+    value = "0" + String(value);
+  }
+
+  document.getElementById("speedometer").innerHTML = value;
+}
+
+
+/*
 async function update_speed() {
   let value = await eel.get_random_number()();
   value = (Math.round(value * 10) / 10).toFixed(1);
@@ -43,3 +55,4 @@ async function update_speed() {
 
   document.getElementById("speedometer").innerHTML = value;
 }
+*/
