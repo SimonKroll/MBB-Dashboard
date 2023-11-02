@@ -6,6 +6,7 @@ document.getElementById("left-arrow").addEventListener("click", ()=>{eel.get_ran
 
 var batteryInner = document.getElementsByClassName('batteryInner')[0];
 var batteryPercentage = 5;
+var active = true;
 
 setInterval(function(){
   if(batteryPercentage <= 100){
@@ -14,6 +15,10 @@ setInterval(function(){
     document.getElementsByClassName("pct")[0].innerHTML = batteryPercentage;
 
   }
+  var element = document.getElementById("left-arrow");
+  active = !active;
+  active ? element.classList.remove("active") : element.classList.add("active");
+
 }, 200)
 
 
@@ -21,7 +26,7 @@ var intervalId = window.setInterval(function(){
   console.log("async called");
  update_speed();
 }, 100);
-
+ 
 
 eel.expose(prompt_alerts);
 function prompt_alerts(description) {

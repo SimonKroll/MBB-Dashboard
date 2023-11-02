@@ -116,6 +116,7 @@ html{
 }
 
 .arrows {
+  --color: grey;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -126,10 +127,14 @@ html{
   margin: 10px 10px 0px 0px;
 }
 
+.active {
+  --color : green;
+}
+
 .line {
   margin-top: 10px;
   width: 20px;
-  background: green;
+  background: var(--color);
   height: 20px;
   float: left;
 }
@@ -139,7 +144,7 @@ html{
   height: 0;
   border-top: 20px solid transparent;
   border-bottom: 20px solid transparent;
-  border-left: 30px solid green;
+  border-left: 30px solid var(--color);
   float: right;
 }
 
