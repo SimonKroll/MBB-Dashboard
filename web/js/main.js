@@ -10,6 +10,7 @@ document.getElementById("left-arrow").addEventListener(
 //document.getElementById("button-ip").addEventListener("click", ()=>{eel.get_ip()}, false);
 setInterval(updateDateTime, 1000);
 
+/*
 var batteryInner = document.getElementsByClassName("batteryInner")[0];
 var batteryPercentage = 5;
 var active = true;
@@ -21,7 +22,7 @@ setInterval(function () {
     document.getElementsByClassName("pct")[0].innerHTML = batteryPercentage;
   }
 }, 200);
-
+*/
 var intervalId = window.setInterval(function () {
   //console.log("async called");
   update_speed();
@@ -32,14 +33,22 @@ function prompt_alerts(description) {
   alert(description);
 }
 
-eel.expose(set_speed);
-function set_speed(mph) {
+eel.expose(parse);
+function parse(line) {
+  //speed
+  /*
   value = (Math.round(mph * 10) / 10).toFixed(1);
   if (value < 10.0) {
     value = "0" + String(value);
   }
+  */
 
-  document.getElementById("speedometer").innerHTML = value;
+  document.getElementById("speedometer").innerHTML = line.substring(6,9);
+  document.getElementById("range").innerHTML = line.substring(26,28);
+  var batteryInner = document.getElementsByClassName("batteryInner")[0];
+  let batteryPercentage = line.substring(16,18);
+  batteryInner.style.width = batteryPercentage + "%";
+  document.getElementsByClassName("pct")[0].innerHTML = batteryPercentage;
 }
 
 

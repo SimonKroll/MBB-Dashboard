@@ -48,9 +48,8 @@ def serial_start():
 
     while True:
         line = ser.readline().decode("utf-8").rstrip()
-        if line[0] == "S":
-            eel.set_speed(line[6:10])
-            print(line[6:10])
+        if line[0] == "S": #only parse full lines
+            eel.parse(line)
 
     ser.close()
   
