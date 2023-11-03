@@ -43,12 +43,27 @@ function parse(line) {
   }
   */
 
-  document.getElementById("speedometer").innerHTML = line.substring(6,9);
-  document.getElementById("range").innerHTML = line.substring(26,28);
+  document.getElementById("speedometer").innerHTML = line.substring(6,10);
+  document.getElementById("range").innerHTML = line.substring(26,29);
+  document.getElementById("torque").innerHTML = line.substring(34,36);
+
   var batteryInner = document.getElementsByClassName("batteryInner")[0];
-  let batteryPercentage = line.substring(16,18);
+  let batteryPercentage = line.substring(17,19);
   batteryInner.style.width = batteryPercentage + "%";
   document.getElementsByClassName("pct")[0].innerHTML = batteryPercentage;
+
+  if(line[53] == "1"){
+    document.getElementById("right-arrow").classList.add("active");
+  }else {
+    document.getElementById("right-arrow").classList.remove("active");
+  }
+
+  if(line[44] == "1"){
+    document.getElementById("left-arrow").classList.add("active");
+  }else {
+    document.getElementById("left-arrow").classList.remove("active");
+  }
+
 }
 
 
@@ -59,7 +74,7 @@ function updateDateTime() {
   const timestamp = currentDate.toLocaleTimeString();
 
   // update the `textContent` property of the `span` element with the `id` of `datetime`
-  document.getElementsByClassName('time')[0].textContent = timestamp.substring(0,timestamp.length-3);
+  document.getElementsByClassName('time')[0].textContent = timestamp.substring(0,timestamp.length);
 }
 
 // call the `updateDateTime` function every second
