@@ -8,6 +8,7 @@ document.getElementById("left-arrow").addEventListener(
 //document.getElementById("button-number").addEventListener("click", ()=>{eel.get_random_number()}, false);
 //document.getElementById("button-date").addEventListener("click", ()=>{eel.get_date()}, false);
 //document.getElementById("button-ip").addEventListener("click", ()=>{eel.get_ip()}, false);
+setInterval(updateDateTime, 1000);
 
 var batteryInner = document.getElementsByClassName("batteryInner")[0];
 var batteryPercentage = 5;
@@ -19,13 +20,10 @@ setInterval(function () {
     batteryPercentage = (batteryPercentage + 1) % 100;
     document.getElementsByClassName("pct")[0].innerHTML = batteryPercentage;
   }
-  var element = document.getElementById("left-arrow");
-  active = !active;
-  active ? element.classList.remove("active") : element.classList.add("active");
 }, 200);
 
 var intervalId = window.setInterval(function () {
-  console.log("async called");
+  //console.log("async called");
   update_speed();
 }, 100);
 
@@ -43,6 +41,20 @@ function set_speed(mph) {
 
   document.getElementById("speedometer").innerHTML = value;
 }
+
+
+
+function updateDateTime() {
+  // create a new `Date` object
+  const currentDate = new Date();
+  const timestamp = currentDate.toLocaleTimeString();
+
+  // update the `textContent` property of the `span` element with the `id` of `datetime`
+  document.getElementsByClassName('time')[0].textContent = timestamp.substring(0,timestamp.length-3);
+}
+
+// call the `updateDateTime` function every second
+
 
 
 /*

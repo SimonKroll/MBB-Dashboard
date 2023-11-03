@@ -3,8 +3,11 @@
   src: url("7segment.ttf");
 }
 
+
+
 h1 {
   font-family: "Seven Segment";
+  font-size: 45px;
   margin: 0px;
 }
 h2 {
@@ -15,7 +18,7 @@ h2 {
 body,
 html {
   height: 100%;
-  cursor: none;
+  cursor:crosshair;
   background-color: white;
 }
 
@@ -85,23 +88,31 @@ html{
 }
 
 .torque-indicator {
+  width: 175px;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: center;
   gap: 5px;
+}
+
+.clock-indicator {
+  display: flex;
+  align-items: center;
 }
 
 .top-bar {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 400px;
   width: 100%;
-  margin: 10px;
+  margin-top: 15px;
 }
 
 .bottom-bar {
   display: flex;
   justify-content: space-around;
   width: 100%;
-  margin: 10px;
+  margin: 15px;
 }
 
 #left-arrow {
@@ -120,9 +131,22 @@ html{
   margin: 10px 10px 0px 0px;
 }
 
-.active {
-  --color: green;
+@keyframes blink {
+  from {
+    --color:grey;
+  }
+  to {
+    --color:green;
 }
+}
+
+.arrow.active .line, .arrow.active .point {
+
+ animation-name: blink;
+ animation-duration: 0.5s;
+ animation-iteration-count: infinite; 
+}
+
 
 .line {
   margin-top: 15px;
