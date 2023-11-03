@@ -45,12 +45,17 @@ def eel_start():
 
 def serial_start():
     ser = serial.Serial("/dev/serial0", 9600)
+    run = True
 
-    while True:
-        line = ser.readline().decode("utf-8").rstrip()
-        if line[0] == "S": #only parse full lines
-            eel.parse(line)
-
+    while run:
+        try:
+            line = ser.readline().decode("utf-8").rstrip()
+            if line[0] == "S": #only parse full lines
+                eel.parse(line)
+                #print(line)
+        except:
+            print("Serial Error Occured")
+            run = False
     ser.close()
   
 
