@@ -10,14 +10,14 @@ void setup() {
 // the loop routine runs over and over again forever:
 void loop() {
 
-  int lBlink = abs(round(sin(i)));
-  int rBlink = abs(round(sin(i+3)));
+  int lBlink = abs(round(sin(0.05*i)));
+  int rBlink = abs(round(sin(0.05*i+1.6)));
 
-  int range = 50 + 50*cos(0.5*i);
-  int mph = 48 + 48*sin(0.3*i +15);
-  int torque = 15 + 10*cos(i+50);
-  int battery = 50 + 50*sin(0.1*i+27);
-  int trq = 50 + 50* cos(0.5*i+25);
+  int range = 50 + 50*cos(0.05*i);
+  int mph = 480 + 480*sin(0.03*i +15);
+  int torque = 15 + 10*cos(0.1*i+50);
+  int battery = 50 + 50*sin(0.01*i+27);
+  int trq = 50 + 50* cos(0.05*i+25);
   
   message[6] = mph/100 + 48;
   message[7] = mph/10%10 +48;
@@ -39,6 +39,6 @@ void loop() {
     
   
   Serial.println(message);
-  delay(500);        // delay in between reads for stability
+  delay(200);        // delay in between reads for stability
   i++;
 }
