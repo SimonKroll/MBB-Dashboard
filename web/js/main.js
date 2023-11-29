@@ -1,3 +1,4 @@
+/*
 document.getElementById("left-arrow").addEventListener(
   "click",
   () => {
@@ -5,6 +6,7 @@ document.getElementById("left-arrow").addEventListener(
   },
   false
 );
+*/
 //document.getElementById("button-number").addEventListener("click", ()=>{eel.get_random_number()}, false);
 //document.getElementById("button-date").addEventListener("click", ()=>{eel.get_date()}, false);
 //document.getElementById("button-ip").addEventListener("click", ()=>{eel.get_ip()}, false);
@@ -23,6 +25,12 @@ setInterval(function () {
   }
 }, 200);
 */
+
+function hello(){
+
+  console.log("Hello");
+}
+
 var intervalId = window.setInterval(function () {
   //console.log("async called");
   update_speed();
@@ -52,17 +60,7 @@ function parse(line) {
   batteryInner.style.width = batteryPercentage + "%";
   document.getElementsByClassName("pct")[0].innerHTML = batteryPercentage;
 
-  if(line[53] == "1"){
-    document.getElementById("right-arrow").classList.add("active");
-  }else {
-    document.getElementById("right-arrow").classList.remove("active");
-  }
 
-  if(line[44] == "1"){
-    document.getElementById("left-arrow").classList.add("active");
-  }else {
-    document.getElementById("left-arrow").classList.remove("active");
-  }
 
 }
 

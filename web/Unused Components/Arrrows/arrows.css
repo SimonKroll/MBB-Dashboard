@@ -1,0 +1,32 @@
+.arrows {
+    --color: grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .arrow {
+    width: 75px;
+    margin: 10px 10px 0px 0px;
+  }
+
+  #left-arrow {
+    transform: rotate(180deg);
+  }
+  
+  
+  @keyframes blink {
+    from {
+      --color:grey;
+    }
+    to {
+      --color:green;
+  }
+  }
+  
+  .arrow.active .line, .arrow.active .point {
+  
+   animation-name: blink;
+   animation-duration: 0.5s;
+   animation-iteration-count: infinite; 
+  }
