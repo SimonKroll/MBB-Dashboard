@@ -26,11 +26,31 @@ setInterval(function () {
 }, 200);
 */
 
-function hello(){
+// Get the modal
+var modal = document.getElementById("infoModal");
 
-  console.log("Hello");
+
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+function displayInfo() {
+  modal.style.display = "block";
 }
 
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+} 
+/*
 var intervalId = window.setInterval(function () {
   //console.log("async called");
   update_speed();
@@ -40,6 +60,7 @@ eel.expose(prompt_alerts);
 function prompt_alerts(description) {
   alert(description);
 }
+*/
 
 eel.expose(parse);
 function parse(line) {

@@ -13,7 +13,7 @@
     <div class="background">
       <div class="display">
         <div class="top-bar">
-          <img src = "images/info-circle.svg" style="width: 40px;" onclick="hello()"/>
+          <img src = "images/info-circle.svg" style="width: 40px;" onclick="displayInfo()"/>
 
           <div class="range-indicator">
             <h1 id="range">___</h1>
@@ -41,7 +41,20 @@
             <h2>ft-lbs</h2>
           </div>
         </div>
+        <div id="infoModal" class="modal">
+
+          <!-- Modal content -->
+          <div class="modal-content">
+            <div class="close">&times;</div>
+            <div class="info-text">
+              <h2>MBB Dashboard</h2>
+              <h4>Version 2023.12.1</h4>
+              <p>An interactive Web APP to display bike statistics</p>
+              <p>Powered by PI and python!</p>
+            </div>
+          </div>
         
+        </div>
       </div>
     </div>
   </body>
