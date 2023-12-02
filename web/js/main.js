@@ -72,7 +72,7 @@ function parse(line) {
   }
   */
 
-  document.getElementById("speedometer").innerHTML = line.substring(6,10);
+  //document.getElementById("speedometer").innerHTML = line.substring(6,10);
   document.getElementById("range").innerHTML = line.substring(26,29);
   document.getElementById("torque").innerHTML = line.substring(34,36);
 
@@ -100,9 +100,11 @@ function updateDateTime() {
 
 
 
-/*
-async function update_speed() {
-  let value = await eel.get_random_number()();
+eel.expose(update_speed);
+function update_speed(value) {
+  //if (value < 1.5){
+  //  value = 0;
+  //}
   value = (Math.round(value * 10) / 10).toFixed(1);
   if (value < 10.0) {
     value = "0" + String(value);
@@ -110,4 +112,4 @@ async function update_speed() {
 
   document.getElementById("speedometer").innerHTML = value;
 }
-*/
+
