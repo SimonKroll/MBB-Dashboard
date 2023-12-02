@@ -24,6 +24,8 @@ html {
   height: 100%;
   cursor: none;
   background-color: white;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 body {
