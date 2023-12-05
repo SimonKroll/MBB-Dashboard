@@ -74,7 +74,7 @@ function parse(line) {
 
   //document.getElementById("speedometer").innerHTML = line.substring(6,10);
   document.getElementById("range").innerHTML = line.substring(26,29);
-  document.getElementById("torque").innerHTML = line.substring(34,36);
+  document.getElementById("torque").innerHTML = line.substring(4,9);
 
   var batteryInner = document.getElementsByClassName("batteryInner")[0];
   let batteryPercentage = line.substring(17,19);
