@@ -12,6 +12,26 @@ document.getElementById("left-arrow").addEventListener(
 //document.getElementById("button-ip").addEventListener("click", ()=>{eel.get_ip()}, false);
 setInterval(updateDateTime, 1000);
 
+function MovingAverage(windowSize) {
+  this.windowSize = windowSize;
+  this.values = [];
+  this.sum = 0;
+
+  this.add = function (newValue) {
+    this.values.push(newValue);
+    this.sum += newValue;
+
+    if (this.values.length > this.windowSize) {
+      var removedValue = this.values.shift();
+      this.sum -= removedValue;
+    }
+
+    return this.sum / this.values.length;
+  };
+}
+
+torque_MA = new MovingAverage(10);
+
 /*
 var batteryInner = document.getElementsByClassName("batteryInner")[0];
 var batteryPercentage = 5;
@@ -72,13 +92,13 @@ function parse(line) {
   }
   */
 
-  //document.getElementById("speedometer").innerHTML = line.substring(6,10);
-  document.getElementById("range").innerHTML = line.substring(26,29);
-  document.getElementById("torque").innerHTML = line.substring(4,9);
+  // TODO: Range is now RPM
+  document.getElementById("range").innerHTML = line.substring(19, 24);
+  document.getElementById("torque").innerHTML = line.substring(4, 8);
 
   var batteryInner = document.getElementsByClassName("batteryInner")[0];
-  let batteryPercentage = line.substring(17,19);
-  batteryInner.style.width = batteryPercentage + "%";
+  let batteryPercentage = parseInt(line.substring(12, 15));
+  batteryInner.style.width = String(batteryPercentage).padStart(2, "0") + "%";
   document.getElementsByClassName("pct")[0].innerHTML = batteryPercentage;
 
 
@@ -93,7 +113,10 @@ function updateDateTime() {
   const timestamp = currentDate.toLocaleTimeString();
 
   // update the `textContent` property of the `span` element with the `id` of `datetime`
-  document.getElementsByClassName('time')[0].textContent = timestamp.substring(0,timestamp.length);
+  document.getElementsByClassName("time")[0].textContent = timestamp.substring(
+    0,
+    timestamp.length
+  );
 }
 
 // call the `updateDateTime` function every second

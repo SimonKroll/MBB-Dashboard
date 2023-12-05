@@ -103,7 +103,11 @@ def gps_start():
             else:
                 speed_out = 0
             
-            #speed_out = format(speed_out, ".1f")
+            # limit at low speeds
+            if  speed_out < 3.5 :
+                speed_out = 0
+        
+            
             eel.update_speed(speed_out)
 
 
