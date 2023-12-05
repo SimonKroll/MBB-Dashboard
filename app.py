@@ -50,7 +50,7 @@ def eel_start():
 
 
 def serial_start():
-    ser = serial.Serial("/dev/ttyAMA0", 9600)
+    ser = serial.Serial("/dev/ttyUSB0", 9600)
     run = True
 
     while run:
