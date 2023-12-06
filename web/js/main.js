@@ -113,9 +113,8 @@ function parse(line) {
 
   // TODO: Range is now RPM
   document.getElementById("range").innerHTML = line.substring(19, 24);
-  document.getElementById("torque").innerHTML = torque_MA
-    .add(parseFloat(line.substring(4, 8)))
-    .toFixed(2);
+  let torque = torque_MA.add(parseFloat(line.substring(4, 8)));
+  document.getElementById("torque").innerHTML = Math.abs(torque).toFixed(2);
 
   var batteryInner = document.getElementsByClassName("batteryInner")[0];
   let batteryPercentage = parseInt(line.substring(12, 15));

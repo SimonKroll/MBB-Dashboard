@@ -53,7 +53,7 @@ def serial_start():
     ser = serial.Serial("/dev/ttyUSB0", 9600)
     run = 0
 
-    while run<10:
+    while run<5:
         try:
             line = ser.readline().decode("utf-8").rstrip()
             if line[0] == "T": #only parse full lines
