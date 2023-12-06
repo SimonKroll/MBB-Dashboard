@@ -268,6 +268,9 @@ html{
   touch-action: pinch-zoom pan-x pan-y;
   border-radius: 10px;
 }
+.bike-container::-webkit-scrollbar {
+  display: none;
+}
 
 .sys-image {
   width: 800px;
