@@ -262,7 +262,15 @@ html{
 .bike-container {
   width: 600px;
   height: 300px;
+  margin: 15px;
   overflow: scroll;
   position: relative;
   touch-action: pinch-zoom pan-x pan-y;
+  border-radius: 10px;
+}
+
+.sys-image {
+  width: 800px;
+  display: block;
+  border-radius: 10px;
 }
