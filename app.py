@@ -51,17 +51,19 @@ def eel_start():
 
 def serial_start():
     ser = serial.Serial("/dev/ttyUSB0", 9600)
-    run = True
+    run = 0
 
-    while run:
+    while run<10:
         try:
             line = ser.readline().decode("utf-8").rstrip()
-            if line[0] == "S": #only parse full lines
-                eel.parse(line)
+            if line[0] == "T": #only parse full lines
                 #print(line)
+                eel.parse(line)
+                
         except:
             print("Serial Error Occured")
-            run = False
+            run += 1
+            continue
     ser.close()
 
 def gps_start():

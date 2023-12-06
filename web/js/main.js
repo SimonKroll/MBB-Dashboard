@@ -30,7 +30,7 @@ function MovingAverage(windowSize) {
   };
 }
 
-torque_MA = new MovingAverage(10);
+torque_MA = new MovingAverage(25);
 
 /*
 var batteryInner = document.getElementsByClassName("batteryInner")[0];
@@ -49,8 +49,6 @@ setInterval(function () {
 // Get the modal
 var modal = document.getElementById("infoModal");
 
-
-
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
@@ -60,16 +58,16 @@ function displayInfo() {
 }
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
+span.onclick = function () {
   modal.style.display = "none";
-}
+};
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
+window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
-} 
+};
 /*
 var intervalId = window.setInterval(function () {
   //console.log("async called");
@@ -94,18 +92,15 @@ function parse(line) {
 
   // TODO: Range is now RPM
   document.getElementById("range").innerHTML = line.substring(19, 24);
-  document.getElementById("torque").innerHTML = line.substring(4, 8);
+  document.getElementById("torque").innerHTML = torque_MA
+    .add(parseFloat(line.substring(4, 8)))
+    .toFixed(2);
 
   var batteryInner = document.getElementsByClassName("batteryInner")[0];
   let batteryPercentage = parseInt(line.substring(12, 15));
   batteryInner.style.width = String(batteryPercentage).padStart(2, "0") + "%";
   document.getElementsByClassName("pct")[0].innerHTML = batteryPercentage;
-
-
-
 }
-
-
 
 function updateDateTime() {
   // create a new `Date` object
@@ -121,8 +116,6 @@ function updateDateTime() {
 
 // call the `updateDateTime` function every second
 
-
-
 eel.expose(update_speed);
 function update_speed(value) {
   //if (value < 1.5){
@@ -135,4 +128,3 @@ function update_speed(value) {
 
   document.getElementById("speedometer").innerHTML = value;
 }
-
