@@ -16,7 +16,27 @@
     <div class="background">
       <div class="display">
         <div class="top-bar">
-          <img src = "images/info-circle.svg" style="width: 40px;" onclick="displayInfo()"/>
+          <img
+            src="images/info-circle.svg"
+            style="width: 40px; margin-left: 50px; margin-right: 50px"
+            onclick="displayInfo()"
+          />
+
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              align-content: center;
+              align-items: center;
+            "
+          >
+            <img
+              src="images/cpu.svg"
+              style="width: 45px"
+              onclick="displaySystem()"
+            />
+            <h5>System Diagram</h5>
+          </div>
 
           <div class="range-indicator">
             <h1 id="range">____</h1>
@@ -46,10 +66,9 @@
           </div>
         </div>
         <div id="infoModal" class="modal">
-
           <!-- Modal content -->
           <div class="modal-content">
-            <div class="close">&times;</div>
+            <div id="infoClose" class="close">&times;</div>
             <div class="info-text">
               <h2>MBB Dashboard</h2>
               <h4>Version 2023.12.1</h4>
@@ -57,7 +76,17 @@
               <p>Powered by PI and python!</p>
             </div>
           </div>
-        
+        </div>
+        <div id="sysModal" class="sys-modal">
+          <div class="sys-modal-content">
+            <div id="sysClose" class="sys-close">&times;</div>
+            <div class="sys-info-text">
+              <h2>Bike Schematic</h2>
+              <div class="bike-container">
+                <img src="./images/BikeSystem.png" style="width: 100%" />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
